@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  
+  <style>
+
+.product-img img{
+  height:160px;
+  object-fit:cover;
+}
+
+.card{
+  height:100%;
+}
+  
+body{
+background-color:#e8f5e9;
+}
+
+.card-body{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.product-title{
+  min-height:60px;
+}
+
+.price-border{
+  border-top:1px solid #e5e5e5;
+  margin-top:6px;
+  padding-top:6px;
+}
+  
+.kategori-menu{
+display:flex;
+gap:10px;
+overflow-x:auto;
+padding:10px 15px;
+margin-top:70px;   
+margin-bottom:15px; 
+}
+
+.kategori-btn{
+background:#198754;
+color:white;
+border:none;
+padding:8px 14px;
+border-radius:8px;
+font-size:14px;
+text-decoration:none;
+white-space:nowrap;
+display:inline-block;
+}
+
+  
+</style>
+
+</head>
+<body>
+  <h1>
+    <!-- Navbar Atas -->
+ <nav class="navbar fixed-top bg-white shadow-sm">
+  <div class="container">
+
+    <form class="d-flex flex-grow-1 me-3">
+      <input class="form-control" type="search" placeholder="Pencarian">
+    </form>
+
+    <a href="chat.html" class="text-white me-3 fs-5 text-decoration-none">
+      💬
+    </a>
+
+    <a href="keranjang.html" class="text-white fs-5 text-decoration-none">
+      🛒
+    </a>
+
+  </div>
+</nav>
+  </h1>
+  <script>
+
+function bukaProduk(
+nama,
+harga,
+gambar,
+rating,
+kota
+){
+
+const produk = {
+nama,
+harga,
+gambar,
+rating,
+kota
+};
+
+localStorage.setItem(
+"produkDipilih",
+JSON.stringify(produk)
+);
+
+window.location.href =
+"produk.html";
+
+}
+
+</script>
+</body>
+
+<header>
+  
+  <div class="kategori-menu">
+  <a href="elektronik.html" class="kategori-btn">Elektronik</a>
+  <a href="fashion.html" class="kategori-btn">Fashion</a>
+  <a href="otomotif.html" class="kategori-btn">Otomotif</a>
+  <a href="gadget.html" class="kategori-btn">Gadget</a>
+</div>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="banner1.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="banner2.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="banner3.jpg" class="d-block w-100" alt="...">
+     
+    </div>
+  </div>
+     
+</header>
+  <div class="container mt-4 pb-5">
+
+<div class="row g-3">
+
+<!-- PRODUK 1 -->
+<div class="col-6">
+<div class="card shadow-sm"
+onclick="bukaProduk(
+'Xiaomi TV A Pro 43 2026',
+2950000,
+'tv.jpg',
+'⭐ 5.0',
+'Kota Mojokerto'
+)"
+style="cursor:pointer;">
+
+<div class="product-img">
+
+<img src="tv.jpg" 
+class="card-img-top product-img">
+
+</div>
+
+<div class="card-body p-2">
+
+<div class="small product-title">
+Xiaomi TV A Pro 43 2026 |
+
+4K QLED
+
+HDR10+ |
+
+Dolby Audio |
+
+Google TV |
+
+Apple Airplay 
+
+[Official Store] - A Pro 43 2026
+</div>
+
+<div class="text-danger fw-bold price-border">
+Rp2.950.000
+</div>
+
+<small>⭐ 5.0</small><br>
+<small class="text-muted">Kota Mojokerto</small>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUK 2 -->
+<div class="col-6">
+<div class="card shadow-sm"
+onclick="bukaProduk(
+'iPhone 11 inter 128 ibox fullset',
+549999,
+'iphone.jpg',
+'⭐ 4.8',
+'Jakarta Barat',
+'iPhone 11 inter fullset kondisi mulus'
+)">
+
+<div class="product-img">
+
+<img src="iphone.jpg"
+class="card-img-top product-img">
+
+</div>
+
+<div class="card-body p-2">
+
+<div class="small product-title">
+iPhone 11 inter 128 ibox fullset
+</div>
+
+<div class="text-danger fw-bold price-border">
+Rp549.999
+</div>
+
+<small>⭐ 4.8</small><br>
+<small class="text-muted">Jakarta Barat</small>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUK 3 -->
+<div class="col-6">
+<div class="card shadow-sm"
+onclick="bukaProduk(
+'TAYLORMADE QI4D 2026 FAIRWAY',
+2155000,
+'golf.jpg',
+'⭐ 4.9',
+'Jakarta Barat',
+'Stick golf TaylorMade Qi4D Core Fairway 3 Wood'
+)">
+
+<div class="product-img">
+
+
+<img src="golf.jpg"
+class="card-img-top">
+
+</div>
+
+<div class="card-body p-2">
+
+<div class="small product-title">
+TAYLORMADE QI4D 2026 FAIRWAY | TaylorMade Qi4D Core Fairway - 3 Wood, REAX 65
+</div>
+
+<div class="text-danger fw-bold price-border">
+Rp2.155.000
+</div>
+
+<small>⭐ 4.9</small><br>
+<small class="text-muted">Jakarta Barat</small>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUK 4 -->
+<div class="col-6">
+<div class="card shadow-sm"
+onclick="bukaProduk(
+'Ps4 Sony Pro, Slim, Fat',
+61870,
+'ps.jpg',
+'⭐ 4.7',
+'Bekasi Store',
+'PS4 Sony bonus full game tersedia berbagai tipe'
+)">
+
+<div class="product-img">
+
+<img src="ps.jpg"
+class="card-img-top">
+
+</div>
+
+<div class="card-body p-2">
+
+<div class="small product-title">
+Ps4 Sony Pro, Slim, Fat, 1Tb, 500gb Bonus full game - Hardisk Saja, Paket Game A
+</div>
+
+<div class="text-danger fw-bold price-border">
+Rp61.870
+</div>
+
+<small>⭐ 4.7</small><br>
+<small class="text-muted">Bekasi Store</small>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+  </div>
+</div>
+
+  <footer>
+    <div class="fixed-bottom bg-light border-top">
+  <div class="container d-flex justify-content-around text-center py-2">
+
+     <a href="index.html" class="text-decoration-none text-dark">
+      <div>
+        🏠
+        <div style="font-size:12px;">Home</div>
+      </div>
+    </a>
+
+    <a href="feed.html" class="text-decoration-none text-dark">
+      <div>
+        ▶️
+        <div style="font-size:12px;">Feed</div>
+      </div>
+    </a>
+
+    <a href="promo.html" class="text-decoration-none text-dark">
+  <div>
+    🔥
+    <div style="font-size:12px;">Promo</div>
+  </div>
+</a>
+    
+    <a href="akun.html" class="text-decoration-none text-dark">
+      <div>
+        👤
+        <div style="font-size:12px;">Akun</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+  </footer>
+
+</div>
+</html>
