@@ -83,11 +83,43 @@ padding:12px 20px;
 border-radius:10px;
 font-size:18px;
 }
+  
+.pilihProduk,
+#pilihSemua{
+accent-color: #198754;
+}
 
 .total{
 font-size:20px;
 font-weight:bold;
 color:red;
+}
+  
+.qty-box{
+display:flex;
+align-items:center;
+gap:12px;
+margin-top:8px;
+font-size:18px;
+}
+
+.qty-btn{
+border:none;
+background:none;
+padding:0;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+color:#000;
+line-height:1;
+}
+
+.qty-btn:hover{
+opacity:0.7;
+}
+
+.qty-btn:hover{
+opacity:0.9;
 }
 
 </style>
@@ -104,6 +136,15 @@ class="btn border-0 fs-4">
 ←
 </button>
 
+<div class="d-flex align-items-center gap-3">
+
+<span
+id="editBtn"
+onclick="toggleEditMode()"
+style="cursor:pointer;">
+Ubah
+</span>
+  
 <a href="chat.html"
 class="text-dark text-decoration-none fs-4">
 💬
@@ -138,8 +179,10 @@ id="total">
 Rp0
 </div>
 
-<button class="checkout-btn"
-id="checkoutBtn">
+<button
+class="checkout-btn"
+id="checkoutBtn"
+onclick="aksiTombol()">
 Checkout (0)
 </button>
 
@@ -148,6 +191,8 @@ Checkout (0)
 
 
 <script>
+  
+let editMode = false;
 
 function kembali(){
 if(window.history.length > 1){
@@ -156,6 +201,39 @@ history.back();
 window.location.href =
 "index.html";
 }
+}
+  
+function toggleEditMode(){
+
+editMode = !editMode;
+
+let editBtn =
+document.getElementById("editBtn");
+
+let checkoutBtn =
+document.getElementById("checkoutBtn");
+
+let total =
+document.getElementById("total");
+
+if(editMode){
+
+editBtn.innerText = "Selesai";
+
+checkoutBtn.innerText = "Hapus";
+
+total.style.display = "none";
+
+}else{
+
+editBtn.innerText = "Ubah";
+
+total.style.display = "block";
+
+hitungTotal();
+
+}
+
 }
 
 
@@ -193,13 +271,29 @@ class="cart-img">
 ${item.nama}
 </div>
 
-<div class="price">
+<div class="price harga">
 Rp${item.harga.toLocaleString()}
 </div>
 
-<small>
-Jumlah: ${item.jumlah}
-</small>
+<div class="qty-box">
+
+<button
+class="qty-btn"
+onclick="kurangJumlah(${index})">
+-
+</button>
+
+<span id="jumlah-${index}">
+${item.jumlah}
+</span>
+
+<button
+class="qty-btn"
+onclick="tambahJumlah(${index})">
++
+</button>
+
+</div>
 
 </div>
 
@@ -265,6 +359,8 @@ document
 "Rp" +
 total.toLocaleString();
 
+if(!editMode){
+
 document
 .getElementById(
 "checkoutBtn"
@@ -273,6 +369,80 @@ document
 "Checkout (" +
 jumlahDipilih +
 ")";
+
+}
+}
+  
+  // TAMBAH JUMLAH
+function tambahJumlah(index){
+
+keranjang[index].jumlah++;
+
+localStorage.setItem(
+"keranjang",
+JSON.stringify(keranjang)
+);
+
+document.getElementById(
+`jumlah-${index}`
+).innerText =
+keranjang[index].jumlah;
+
+hitungTotal();
+
+}
+
+
+// KURANG JUMLAH
+function kurangJumlah(index){
+
+if(keranjang[index].jumlah > 1){
+
+keranjang[index].jumlah--;
+
+localStorage.setItem(
+"keranjang",
+JSON.stringify(keranjang)
+);
+
+document.getElementById(
+`jumlah-${index}`
+).innerText =
+keranjang[index].jumlah;
+
+hitungTotal();
+
+}
+
+}
+  
+function aksiTombol(){
+
+if(editMode){
+
+let checkboxes =
+document.querySelectorAll(
+".pilihProduk"
+);
+
+keranjang =
+keranjang.filter(
+(item,index)=>
+!checkboxes[index].checked
+);
+
+localStorage.setItem(
+"keranjang",
+JSON.stringify(keranjang)
+);
+
+location.reload();
+
+}else{
+
+alert("Menu checkout belum dibuat");
+
+}
 
 }
 
