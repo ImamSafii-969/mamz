@@ -54,7 +54,8 @@ position:relative;
 }
 
 .product-img img{
-height:120px;
+width:100%;
+aspect-ratio:1/1;
 object-fit:cover;
 }
 
@@ -69,6 +70,12 @@ padding:4px 8px;
 border-radius:8px;
 font-weight:bold;
 }
+ 
+.carousel-item img{
+width:100%;
+aspect-ratio:16/6;
+object-fit:cover;
+}
 
 </style>
 </head>
@@ -77,7 +84,7 @@ font-weight:bold;
 
 <!-- NAVBAR -->
  <nav class="navbar fixed-top bg-white shadow-sm">
-  <div class="container">
+  <div class="container-fluid px-3">
 
     <form class="d-flex flex-grow-1 me-3">
       <input class="form-control" type="search" placeholder="Pencarian">
@@ -123,7 +130,7 @@ font-weight:bold;
 
 
 <!-- PRODUK 1 -->
-<div class="col-4">
+<div class="col-6 col-md-4 col-lg-3">
 <div class="card product-card shadow-sm"
 onclick="bukaProduk(
 'Hillmoonri Kasur empuk dan nyaman',
@@ -162,7 +169,7 @@ Rp3.199.000
 
 
 <!-- PRODUK 2 -->
-<div class="col-4">
+<div class="col-6 col-md-4 col-lg-3">
 <div class="card product-card shadow-sm"
 onclick="bukaProduk(
 'SONY PS4 Playstation 4 Fat Slim Pro',
@@ -201,7 +208,7 @@ Rp2.449.000
 
 
 <!-- PRODUK 3 -->
-<div class="col-4">
+<div class="col-6 col-md-4 col-lg-3">
 <div class="card product-card shadow-sm"
 onclick="bukaProduk(
 'Minyak Goreng Rose Brand 2L',
@@ -240,7 +247,7 @@ Rp10.800
 
 
 <!-- PRODUK 4 -->
-<div class="col-4">
+<div class="col-6 col-md-4 col-lg-3">
 <div class="card product-card shadow-sm"
 onclick="bukaProduk(
 'Sandal Slides Adidas Adicane',
@@ -279,7 +286,7 @@ Rp32.000
 
 
 <!-- PRODUK 5 -->
-<div class="col-4">
+<div class="col-6 col-md-4 col-lg-3">
 <div class="card product-card shadow-sm"
 onclick="bukaProduk(
 'Xiaomi Note 14 Pro Plus 5G',
@@ -318,7 +325,7 @@ Rp2.205.000
 
 
 <!-- PRODUK 6 -->
-<div class="col-4">
+<div class="col-6 col-md-4 col-lg-3">
 <div class="card product-card shadow-sm"
 onclick="bukaProduk(
 'MOSSDOOM Tas Selempang Wanita',
