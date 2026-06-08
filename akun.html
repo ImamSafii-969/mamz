@@ -13,7 +13,8 @@
   <style>
 
 .product-img img{
-  height:160px;
+  width:100%;
+  aspect-ratio:1/1;
   object-fit:cover;
 }
 
@@ -46,7 +47,7 @@ background-color:#e8f5e9;
 <body>
 
 <!-- BAGIAN AKUN -->
-<div class="container mt-4">
+<div class="container mt-4" style="max-width:500px;">
 
   <div class="card text-center shadow-sm p-4">
     <h4>Selamat Datang</h4>
@@ -74,7 +75,7 @@ background-color:#e8f5e9;
     
 
 <!-- PRODUK 1 -->
-<div class="col-6">
+<div class="col-6 col-md-4 col-lg-3">
 <div class="card shadow-sm"
 onclick="bukaProduk(
 'Tangga Lipat Aluminium',
@@ -113,7 +114,7 @@ Rp427.888
 
 
 <!-- PRODUK 2 -->
-<div class="col-6">
+<div class="col-6 col-md-4 col-lg-3">
 <div class="card shadow-sm"
 onclick="bukaProduk(
 'Lemari Arsip Kantor',
@@ -152,7 +153,7 @@ Rp830.000
 
 
 <!-- PRODUK 3 -->
-<div class="col-6">
+<div class="col-6 col-md-4 col-lg-3">
 <div class="card shadow-sm"
 onclick="bukaProduk(
 'Sandal Gunung Karet',
@@ -192,7 +193,7 @@ Rp89.200
 
 
 <!-- PRODUK 4 -->
-<div class="col-6">
+<div class="col-6 col-md-4 col-lg-3">
 <div class="card shadow-sm"
 onclick="bukaProduk(
 'Pisau Dapur Jepang',
